@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.abdelazim.x.realestateinvest.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/toApartmentDetailsFragment"
+            app:destination="@id/apartmentDetailsFragment" />
+        <action
+            android:id="@+id/toFavoritesFragment"
+            app:destination="@id/favoritesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactUsFragment"
+        android:name="com.abdelazim.x.realestateinvest.contact_us.ContactUsFragment"
+        android:label="fragment_contact_us"
+        tools:layout="@layout/fragment_contact_us" />
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.abdelazim.x.realestateinvest.favorites.FavoritesFragment"
+        android:label="fragment_favorites"
+        tools:layout="@layout/fragment_favorites" >
+        <action
+            android:id="@+id/toContactUsFragment"
+            app:destination="@id/contactUsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/apartmentDetailsFragment"
+        android:name="com.abdelazim.x.realestateinvest.apartment_details.ApartmentDetailsFragment"
+        android:label="fragment_apartment_details"
+        tools:layout="@layout/fragment_apartment_details" >
+        <action
+            android:id="@+id/toContactUsFragment"
+            app:destination="@id/contactUsFragment" />
+    </fragment>
+</navigation>
