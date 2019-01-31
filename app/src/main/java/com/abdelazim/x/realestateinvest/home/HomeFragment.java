@@ -2,19 +2,27 @@ package com.abdelazim.x.realestateinvest.home;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.abdelazim.x.realestateinvest.R;
+
+import androidx.navigation.Navigation;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements OffersListAdapter.OnListItemClickListener {
 
+    private TextView favoritesTextView;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -28,4 +36,25 @@ public class HomeFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        RecyclerView offersRV = view.findViewById(R.id.offersRV);
+        offersRV.setLayoutManager(new LinearLayoutManager(getContext()));
+        offersRV.setHasFixedSize(true);
+        offersRV.setAdapter(new OffersListAdapter(this));
+
+        favoritesTextView = view.findViewById(R.id.favoritesTextView);
+        favoritesTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(R.id.toFavoritesFragment);
+            }
+        });
+    }
+
+    @Override
+    public void onListItemClick(View view) {
+        Navigation.findNavController(view).navigate(R.id.toApartmentDetailsFragment);
+    }
 }
