@@ -42,7 +42,7 @@ public class OffersListAdapter extends RecyclerView.Adapter<OffersListAdapter.Vi
 
     @Override
     public int getItemCount() {
-        return 1;
+        return 5;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
