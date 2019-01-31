@@ -38,7 +38,7 @@ public class HomeFragment extends Fragment implements OffersListAdapter.OnListIt
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-
+        super.onViewCreated(view, savedInstanceState);
         RecyclerView offersRV = view.findViewById(R.id.offersRV);
         offersRV.setLayoutManager(new LinearLayoutManager(getContext()));
         offersRV.setHasFixedSize(true);
