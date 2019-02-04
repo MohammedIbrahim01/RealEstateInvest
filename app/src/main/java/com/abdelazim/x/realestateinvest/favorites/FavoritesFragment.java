@@ -21,7 +21,7 @@ import androidx.navigation.Navigation;
  */
 public class FavoritesFragment extends Fragment implements FavoritesAdapter.OnListItemClickListener {
 
-    private RecyclerView favoritesRV;
+    private RecyclerView favoritesRecyclerView;
 
     public FavoritesFragment() {
         // Required empty public constructor
@@ -39,14 +39,21 @@ public class FavoritesFragment extends Fragment implements FavoritesAdapter.OnLi
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        favoritesRV = view.findViewById(R.id.favoritesRV);
-        favoritesRV.setLayoutManager(new LinearLayoutManager(getContext()));
-        favoritesRV.setHasFixedSize(true);
-        favoritesRV.setAdapter(new FavoritesAdapter(this));
+        initViews(view);
+    }
+
+    private void initViews(View view) {
+
+        favoritesRecyclerView = view.findViewById(R.id.favorites_recyclerView);
+
+        favoritesRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        favoritesRecyclerView.setHasFixedSize(true);
+        favoritesRecyclerView.setAdapter(new FavoritesAdapter(this));
     }
 
     @Override
     public void onListItemClick(View view) {
+
         Navigation.findNavController(view).navigate(R.id.toApartmentDetailsFragment);
     }
 }

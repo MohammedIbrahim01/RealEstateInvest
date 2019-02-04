@@ -23,6 +23,7 @@ import androidx.navigation.Navigation;
 public class HomeFragment extends Fragment implements OffersListAdapter.OnListItemClickListener {
 
     private TextView favoritesTextView;
+    private RecyclerView offersRecyclerView;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -39,15 +40,23 @@ public class HomeFragment extends Fragment implements OffersListAdapter.OnListIt
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        RecyclerView offersRV = view.findViewById(R.id.offersRV);
-        offersRV.setLayoutManager(new LinearLayoutManager(getContext()));
-        offersRV.setHasFixedSize(true);
-        offersRV.setAdapter(new OffersListAdapter(this));
 
-        favoritesTextView = view.findViewById(R.id.favoritesTextView);
+        initViews(view);
+    }
+
+    private void initViews(View view) {
+
+        favoritesTextView = view.findViewById(R.id.favorites_textView);
+        offersRecyclerView = view.findViewById(R.id.offers_recyclerView);
+
+        offersRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        offersRecyclerView.setHasFixedSize(true);
+        offersRecyclerView.setAdapter(new OffersListAdapter(this));
+
         favoritesTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Navigation.findNavController(v).navigate(R.id.toFavoritesFragment);
             }
         });
