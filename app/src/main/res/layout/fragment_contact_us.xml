@@ -3,12 +3,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
     tools:context=".contact_us.ContactUsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
+        android:gravity="center"
+        android:background="#921F3FB4"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnEmailUs"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:drawableStart="@drawable/icon_email"
+            android:drawableLeft="@drawable/icon_email"
+            android:fontFamily="serif"
+            android:background="#641086"
+            android:layout_margin="50dp"
+            android:radius="10dp"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="5"
+            android:shadowDy="5"
+            android:shadowRadius="5"
+            android:text="Email Us"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="25sp" />
+
+        <Button
+            android:id="@+id/btnCallUs"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:drawableStart="@drawable/icon_call"
+            android:drawableLeft="@drawable/icon_call"
+            android:fontFamily="serif"
+            android:background="#641086"
+            android:layout_margin="50dp"
+            android:radius="10dp"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="5"
+            android:shadowDy="5"
+            android:shadowRadius="5"
+            android:text="Call Us"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="25sp" />
+
+
+    </LinearLayout>
+
 
 </FrameLayout>
