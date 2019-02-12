@@ -45,6 +45,7 @@ public class FavoritesFragment extends Fragment implements FavoritesAdapter.OnLi
     private void initViews(View view) {
 
         favoritesRecyclerView = view.findViewById(R.id.favorites_recyclerView);
+
         favoritesRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         favoritesRecyclerView.setHasFixedSize(true);
         favoritesRecyclerView.setAdapter(new FavoritesAdapter(this));
